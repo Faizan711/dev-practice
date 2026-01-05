@@ -1,0 +1,21 @@
+import java.util.*;
+
+class factorial {
+
+    public static int fact(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        return n * fact(n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number to find its factorial: ");
+        int n = sc.nextInt();
+
+        factorial f = new factorial();
+        System.out.println("Factorial of " + n + " is: " + fact(n));
+        sc.close();
+    }
+}

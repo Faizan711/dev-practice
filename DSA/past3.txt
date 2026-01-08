@@ -1,0 +1,38 @@
+//function to reverse linked list
+public void reverseLL(LinkedList head){
+    if(head == null || head.next == null){
+        return head;
+    }
+    LinkedList prev = null;
+    LinkedList curr = head;
+    while(curr!=null){
+        LinkedList temp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = temp;
+    }
+}
+
+//factorial function
+public int factorial(int n ){
+    if(n == 0 || n == 1){
+    return 1;
+
+    return n *factorial(n-1);
+    }
+}
+
+//maximum subarry kadane's algorithm
+public int maxS(int[] arr){
+    int max = Integer.MIN_VALUE;
+    int curr = 0;
+    for(int i = 0;i<arr.length;i++){
+        curr += arr[i];
+        if(curr > max){
+            max = curr;
+        }
+        if(curr < 0){
+            curr = 0;
+        }
+    }
+}

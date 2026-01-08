@@ -1,0 +1,11 @@
+12:24:48 PM / GET ::ffff:127.0.0.1
+12:24:52 PM /about GET ::ffff:127.0.0.1
+12:25:00 PM /contact GET ::ffff:127.0.0.1
+12:25:07 PM /test GET ::ffff:127.0.0.1
+12:26:50 PM /test GET ::ffff:127.0.0.1
+12:26:54 PM /about GET ::ffff:127.0.0.1
+12:29:02 PM /about?name=faizan GET ::ffff:127.0.0.1
+12:36:44 PM / GET ::ffff:127.0.0.1
+12:38:34 PM /test-body POST ::1
+12:38:47 PM /test-body POST ::1
+12:48:18 PM /test-body POST ::1

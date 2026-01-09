@@ -27,3 +27,14 @@
 5:41:34 PM /projects POST ::1
 5:43:19 PM /projects POST ::1
 5:44:34 PM /projects POST ::1
+6:04:20 PM /projects POST ::1
+6:07:12 PM /projects?id=3 POST ::1
+6:07:29 PM /projects/tasks?id=3 POST ::1
+6:08:15 PM /projects/tasks?id=3 POST ::1
+6:08:47 PM /projects/tasks?id=3 POST ::1
+6:10:16 PM /projects/tasks?id=4 POST ::1
+6:20:39 PM /projects?id=4 POST ::1
+6:20:57 PM /projects?id=4 PUT ::1
+6:23:02 PM /projects?id=6 DELETE ::1
+6:23:29 PM /projects?id=6 DELETE ::1
+6:25:00 PM /projects?id=6 DELETE ::1

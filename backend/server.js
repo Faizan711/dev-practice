@@ -1,6 +1,15 @@
 import http from "http";
 import fs from "fs";
 import url from "url";
+import querystring from "querystring";
+
+const data_file = "./data.json";
+const data = fs.readFileSync("./data.json");
+
+let projects = JSON.parse(data);
+console.log("projects", projects);
+console.log("projects last item", projects[projects.length - 1]);
+let lastIndex = projects.length === 0 ? 0 : projects[projects.length - 1].id;
 
 const myServer = http.createServer((req, res) => {
   // res.end("Hello, this is my basic http server!");
@@ -20,49 +29,92 @@ const myServer = http.createServer((req, res) => {
   });
 
   const myUrl = url.parse(req.url, true);
-
-  if (req.method == "POST" || req.method == "PUT") {
+  //creating CRUD APIs without any framework
+  if (myUrl.pathname == "/projects" && req.method == "GET") {
+    res.writeHead(200, { "content-type": "application/json" });
+    return res.end(JSON.stringify(projects));
+  }
+  if (myUrl.pathname == "/projects" && req.method == "POST") {
     let body = "";
+    // req.on("data", (chunk) => {
+    //   body += chunk.toString();
+    // });
     req.on("data", (chunk) => {
       body += chunk.toString();
-    });
+      const project = JSON.parse(body);
+      const name = project.data.name;
 
-    req.on("end", () => {
-      try {
-        const parseBody = JSON.parse(body);
-        const myUrl = url.parse(req.url, true);
-        handleRouting(myUrl, parseBody, res);
-      } catch (err) {
-        res.statusCode = 400;
-        res.end("Invalid JSON body");
+      if (name) {
+        projects.push({ id: ++lastIndex, name, tasks: [] });
+        fs.writeFile(
+          "./data.json",
+          JSON.stringify(projects, null, 2),
+          (err) => {
+            if (err) {
+              const message = { message: "data could not be inserted!" };
+              res.writeHead(500, { "content-type": "application/json" });
+              res.end(JSON.stringify(message, null, 2));
+            } else {
+              res.writeHead(201, { "content-type": "application/json" });
+              res.end(JSON.stringify(projects, null, 2));
+            }
+          },
+        );
+      } else {
+        const message = { message: "no name of the project in body request!" };
+        res.writeHead(400, { "content-type": "application/json" });
+        res.end(JSON.stringify(message, null, 2));
       }
     });
-  } else {
-    handleRouting(myUrl, null, res);
   }
+  if (myUrl.pathname == "/projects/tasks" && req.method == "POST") {
+  }
+  if (myUrl.pathname == "/projects" && req.method == "PUT") {
+  }
+  if (myUrl.pathname == "/projects" && req.method == "DELETE") {
+  }
+  // if (req.method == "POST" || req.method == "PUT") {
+  //   let body = "";
+  //   req.on("data", (chunk) => {
+  //     body += chunk.toString();
+  //   });
 
-  //routing is happening for this server in basic http server
-  function handleRouting(myUrl, body, res) {
-    switch (myUrl.pathname) {
-      case "/":
-        res.end("welcome to my server");
-        break;
-      case "/about":
-        const myName = myUrl.query.name || "Guest";
-        res.end(`this route is for about of my ${myName} server`);
-        break;
-      case "/contact":
-        res.end("this is contact end of my server");
-        break;
-      case "/test-body":
-        console.log("Received body:", body);
-        res.end(`Received body: ${JSON.stringify(body)}`);
-        break;
-      default:
-        res.statusCode = 404;
-        res.end("404 - not found");
-    }
-  }
+  //   req.on("end", () => {
+  //     try {
+  //       const parseBody = JSON.parse(body);
+  //       const myUrl = url.parse(req.url, true);
+  //       handleRouting(myUrl, parseBody, res);
+  //     } catch (err) {
+  //       res.statusCode = 400;
+  //       res.end("Invalid JSON body");
+  //     }
+  //   });
+  // } else {
+  //   handleRouting(myUrl, null, res);
+  // }
+
+  // //routing is happening for this server in basic http server
+  // function handleRouting(myUrl, body, res) {
+  //   switch (myUrl.pathname) {
+  //     case "/":
+  //       res.end("welcome to my server");
+  //       break;
+  //     case "/about":
+  //       const myName = myUrl.query.name || "Guest";
+  //       res.end(`this route is for about of my ${myName} server`);
+  //       break;
+  //     case "/contact":
+  //       res.end("this is contact end of my server");
+  //       break;
+  //     case "/test-body":
+  //       console.log("Received body:", body);
+  //       res.end(`Received body: ${JSON.stringify(body)}`);
+  //       break;
+  //     default:
+  //       res.statusCode = 404;
+  //       res.end("404 - not found");
+  //   }
+  // }
 });
 
 myServer.listen(3000, () => {

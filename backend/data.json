@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Project Alpha",
+    "tasks": [],
+    "description": "A project management tool.",
+    "status": "In Progress"
+  },
+  {
+    "id": 2,
+    "name": "Project Beta",
+    "tasks": [],
+    "description": "An e-commerce platform.",
+    "status": "Completed"
+  },
+  {
+    "id": 3,
+    "name": "Project Gamma",
+    "tasks": []
+  },
+  {
+    "id": 4,
+    "name": "Project Maxima",
+    "tasks": []
+  }
+]

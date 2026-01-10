@@ -38,3 +38,25 @@
 6:23:02 PM /projects?id=6 DELETE ::1
 6:23:29 PM /projects?id=6 DELETE ::1
 6:25:00 PM /projects?id=6 DELETE ::1
+GET / - 2026-01-10T03:17:49.585Z8:48:25 AM / GET ::ffff:127.0.0.1
+8:48:37 AM / GET ::ffff:127.0.0.1
+8:51:12 AM / GET ::ffff:127.0.0.1
+8:53:02 AM /projects GET ::ffff:127.0.0.1
+8:55:09 AM /projects GET ::ffff:127.0.0.1
+8:59:15 AM /projects POST ::1
+8:59:47 AM /projects POST ::1
+9:04:56 AM /projects POST ::1
+9:09:39 AM /projects?id=5 POST ::1
+9:10:53 AM /projects?id=5 POST ::1
+9:11:13 AM /projects?id=5 POST ::1
+9:11:17 AM /projects?id=5 POST ::1
+9:11:39 AM /projects/tasks?id=5 POST ::1
+9:14:14 AM /projects/tasks?id=5 POST ::1
+9:14:49 AM /projects/tasks?id=5 POST ::1
+9:15:01 AM /projects/tasks?id=5 POST ::1
+9:15:06 AM /projects/tasks?id=5 POST ::1
+9:18:05 AM /projects?id=6 PUT ::1
+9:18:39 AM /projects?id=6 PUT ::1
+9:18:44 AM /projects?id=6 PUT ::1
+9:20:24 AM /projects?id=6 DELETE ::1
+9:21:01 AM /projects?id=6 DELETE ::1

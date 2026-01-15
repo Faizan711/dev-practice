@@ -2,7 +2,10 @@
   {
     "id": "1",
     "name": "Project Alpha",
-    "tasks": [],
+    "tasks": [
+      "task A",
+      "task B"
+    ],
     "description": "A project management tool.",
     "status": "In Progress"
   },

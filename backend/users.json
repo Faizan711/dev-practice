@@ -6,5 +6,21 @@
   {
     "username": "faizan1",
     "password": "$2b$10$QwSSZFsUDXAaPsA6PD5BmeWGTXMas0zBaDwMkcggxEZlhDeZsl6wS"
+  },
+  {
+    "username": "faizan2",
+    "password": "$2b$10$GJnSrkKwmhiZPcCseSVf9urOQqlVknOuoks/BqivxFOYih2V0LQ7G"
+  },
+  {
+    "username": "faizan3",
+    "password": "$2b$10$NWa6W49yXbkiBYP8RpgWF.OQJlCjMyTlV2OFXd2lPCdAKyEqTwD4m"
+  },
+  {
+    "username": "faizan4",
+    "password": "$2b$10$OItf07v3OFEK0U0pYFKEhedPy7exPRRAy9XvCGZeNLnFGIPHra9uS"
+  },
+  {
+    "username": "faizan5",
+    "password": "$2b$10$ga4Y/IfGhDiMFETnR/w7HuzzQI3TQZDPYmyfW4o0M6C6rfW12bHmS"
   }
 ]

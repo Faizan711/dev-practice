@@ -11,6 +11,9 @@ function App() {
   );
 }
 
+// Lifecycle methods are of 3 types in react - Mounting, Updating and Unmounting(render function is only required, all else are optional and are called when we define them
+// like componentDidMount, getStateDerivedProps, getBeforeUpdate)
+
 class Car extends Component {
   constructor(props) {
     super();

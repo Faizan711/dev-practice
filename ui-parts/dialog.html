@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        dialog {
+            animation: zoom-out 0.5s ease-out;
+        }
+
+        /* an open attribute is added to the dialog when it is open  */
+        dialog[open] {
+            animation: zoom-in 0.5s ease-out;
+        }
+
+        /* The display property in the keyframes is critical
+        because it toggles the modal’s visibility on and off.  */
+        @keyframes zoom-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.1);
+                display: none;
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                display: block;
+            }
+        }
+
+        @keyframes zoom-out {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+                display: block;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+                display: none;
+            }
+        }
+    </style>
+    <body>
+        <header>Site Header</header>
+        <main id="main-content">
+            <button id="open-dialog">Open modal</button>
+            <p>This is the main content of the page.</p>
+            <!-- More content here -->
+        </main>
+        <!-- Move the dialog outside the main element -->
+        <dialog id="dialog">
+            <h2>Modal Title</h2>
+            <p>This is the content inside the modal.</p>
+            <button id="close-dialog" autofocus>Close</button>
+        </dialog>
+
+        <script>
+            const dialog = document.getElementById("dialog");
+            const mainContent = document.getElementById("main-content");
+            const openButton = document.getElementById("open-dialog");
+            const closeButton = document.getElementById("close-dialog");
+
+            openButton.addEventListener("click", () => {
+                mainContent.setAttribute("inert", "");
+                dialog.showModal();
+            });
+
+            closeButton.addEventListener("click", () => {
+                dialog.close();
+            });
+
+            // the dialog elemnt has a close event, which is called when a user calls the close() method or presses the esc key
+            dialog.addEventListener("close", (event) => {
+                mainContent.removeAttribute("inert");
+            });
+        </script>
+    </body>
+</html>
